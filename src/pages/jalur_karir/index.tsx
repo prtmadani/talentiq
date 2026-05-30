@@ -167,7 +167,6 @@ type CareerBoxProps = {
 
 const CareerBox = ({
   careerInfo,
-  animDelay,
   onOpenRoadmap,
 }: CareerBoxProps) => {
   const { ref, isVisible } = useScrollAnimation();
