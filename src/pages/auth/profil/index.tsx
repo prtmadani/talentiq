@@ -44,31 +44,6 @@ const enrolledCourseList = [
   },
 ];
 
-const suggestedLearningList = [
-  {
-    id: 1,
-    title: "Belajar Tableau dari Nol",
-    category: "Visualisasi Data",
-    platform: "Udemy",
-    duration: "4.5 jam",
-    rating: 4.8,
-    badge: "Direkomendasikan AI",
-    badgeStyle: "bg-indigo-100 text-indigo-700",
-    accent: "#4F46E5",
-  },
-  {
-    id: 2,
-    title: "Machine Learning Dasar",
-    category: "Machine Learning",
-    platform: "Coursera",
-    duration: "12 jam",
-    rating: 4.9,
-    badge: "Populer",
-    badgeStyle: "bg-green-100 text-green-700",
-    accent: "#10B981",
-  },
-];
-
 // progress kecil
 const ProgressLine = ({
   percentage,

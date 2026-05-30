@@ -44,7 +44,9 @@ export const useScrollAnimation = (
 };
 
 export const animClass = (
-isVisible: boolean, p0: string, p1: number, direction: "up" | "down" | "left" | "right" | "fade" = "up") => {
+  isVisible: boolean,
+  direction: "up" | "down" | "left" | "right" | "fade" = "up"
+) => {
   const base = "transition-all duration-700 ease-out";
 
   const hiddenMap = {
