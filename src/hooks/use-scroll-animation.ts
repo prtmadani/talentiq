@@ -1,3 +1,5 @@
+//src/hooks/use-scroll-animation.ts
+
 import { useEffect, useRef, useState } from "react";
 
 interface UseScrollAnimationOptions {

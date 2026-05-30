@@ -1,3 +1,4 @@
+//src/pages/auth/profil/index.tsx
 import {
   ArrowRight,
   Award,
