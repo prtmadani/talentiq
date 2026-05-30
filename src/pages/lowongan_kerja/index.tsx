@@ -12,10 +12,21 @@ import {
 } from "lucide-react";
 
 import HeaderComponent from "@/layout/header";
-import {
-  useScrollAnimation,
-  animClass,
-} from "@/hooks/use-scroll-animation";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+
+const animClass = (
+  isVisible: boolean,
+  direction: "up" | "down",
+  _delay: number,
+  _duration = 300
+) => {
+  const base = "transition-all duration-300 ease-out";
+  const hidden = direction === "up"
+    ? "opacity-0 translate-y-10"
+    : "opacity-0 -translate-y-10";
+
+  return `${base} ${isVisible ? "opacity-100 translate-x-0 translate-y-0" : hidden}`;
+};
 
 // dummy data dulu, nanti tinggal ganti API
 const vacancyList = [

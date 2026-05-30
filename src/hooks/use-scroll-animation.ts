@@ -58,7 +58,7 @@ export const animClass = (
   };
 
   return `${base} ${isVisible
-    ? "opacity-100 translate-x-0 translate-y-0"
-    : hiddenMap[direction]
+      ? "opacity-100 translate-x-0 translate-y-0"
+      : hiddenMap[direction]
     }`;
 };

@@ -21,9 +21,46 @@ import { useNavigate } from "react-router-dom";
 
 import Sidebar from "@/components/common/sidebar";
 import { animClass, useScrollAnimation } from "@/hooks/use-scroll-animation";
+import type { ReactNode } from "react";
+
+type RoadmapStatus =
+  | "done"
+  | "active"
+  | "next"
+  | "later";
+
+type LearningJourneyItem = {
+  id: number;
+  title: string;
+  state: RoadmapStatus;
+  estimate: string;
+  progress?: number;
+};
+
+type HighlightedSkill = {
+  id: number;
+  label: string;
+  icon: ReactNode;
+  demand: string;
+  percentage: number;
+  accent: string;
+  soft: string;
+};
 
 // mock sementara
-const dashboardSnapshot = {
+const dashboardSnapshot: {
+  profile: {
+    firstName: string;
+    completeName: string;
+  };
+  updatedAt: string;
+  jobReadyScore: number;
+  dreamRole: string;
+  masteredSkills: string[];
+  missingSkills: string[];
+  learningJourney: LearningJourneyItem[];
+  highlightedSkills: HighlightedSkill[];
+} = {
   profile: {
     firstName: "Budi",
     completeName: "Budi Santoso",
@@ -312,7 +349,7 @@ const FadeSection = ({
   direction = "up",
   extraClass = "",
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   direction?: "up" | "down" | "left" | "right" | "fade";
   extraClass?: string;
 }) => {
@@ -323,8 +360,6 @@ const FadeSection = ({
       ref={ref}
       className={`${animClass(
         isVisible,
-        direction,
-        700,
         direction
       )} ${extraClass}`}
     >
@@ -584,8 +619,8 @@ const Dashboard = () => {
                       {!lastIndex && (
                         <div
                           className={`absolute left-1/2 top-[19px] z-0 h-0.5 w-full ${phase.state === "done"
-                              ? "bg-green-300"
-                              : "bg-gray-200"
+                            ? "bg-green-300"
+                            : "bg-gray-200"
                             }`}
                         />
                       )}
@@ -615,7 +650,7 @@ const Dashboard = () => {
                           phase.progress && (
                             <div className="mt-2 w-full px-2">
                               <MiniBar
-                                value={phase.progress}
+                                value={phase.progress ?? 0}
                               />
 
                               <p className="mt-1 text-[10px] font-semibold text-[#025CB8]">
@@ -648,8 +683,8 @@ const Dashboard = () => {
                       {!lastIndex && (
                         <div
                           className={`absolute bottom-[-16px] left-[19px] top-10 w-0.5 ${phase.state === "done"
-                              ? "bg-green-200"
-                              : "bg-gray-200"
+                            ? "bg-green-200"
+                            : "bg-gray-200"
                             }`}
                         />
                       )}
@@ -679,7 +714,7 @@ const Dashboard = () => {
                           phase.progress && (
                             <div className="mt-2">
                               <MiniBar
-                                value={phase.progress}
+                                value={phase.progress ?? 0}
                               />
 
                               <p className="mt-1 text-xs font-semibold text-[#025CB8]">
@@ -723,8 +758,8 @@ const Dashboard = () => {
                         setActiveCard(null)
                       }
                       className={`cursor-pointer rounded-2xl border border-gray-100 bg-white p-5 transition-all duration-300 ${isHover
-                          ? "border-opacity-0 shadow-xl -translate-y-1"
-                          : "shadow-sm hover:shadow-md"
+                        ? "border-opacity-0 shadow-xl -translate-y-1"
+                        : "shadow-sm hover:shadow-md"
                         }`}
                       style={
                         isHover
