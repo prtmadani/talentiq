@@ -20,7 +20,7 @@ import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Sidebar from "@/components/common/sidebar";
-import { animClass, useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import type { ReactNode } from "react";
 
 type RoadmapStatus =
@@ -346,22 +346,18 @@ const roadmapState = {
 
 const FadeSection = ({
   children,
-  direction = "up",
   extraClass = "",
 }: {
   children: ReactNode;
   direction?: "up" | "down" | "left" | "right" | "fade";
   extraClass?: string;
 }) => {
-  const { ref, isVisible } = useScrollAnimation();
+  const { ref} = useScrollAnimation();
 
   return (
     <div
       ref={ref}
-      className={`${animClass(
-        isVisible,
-        direction
-      )} ${extraClass}`}
+      className={`$animClass(isVisible, direction)} ${extraClass}`}
     >
       {children}
     </div>
