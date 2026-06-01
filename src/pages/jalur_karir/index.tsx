@@ -687,16 +687,6 @@ const JalurKarir = () => {
           >
             <div className="flex-1 flex flex-col items-start">
 
-              <span
-                className="inline-flex items-center gap-2
-                           bg-white/10 text-white/80
-                           text-xs font-bold
-                           px-3 py-1 rounded-full mb-4"
-              >
-                <BrainCircuit size={13} />
-                Fitur Eksklusif Member
-              </span>
-
               <h2
                 className="text-white text-2xl sm:text-[36px]
                            font-bold leading-snug mb-4"
